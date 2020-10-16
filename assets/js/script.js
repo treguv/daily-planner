@@ -1,5 +1,5 @@
 var tasksForTheDay = ["Event Goes Here ","Event Goes Here","Event Goes Here","Event Goes Here","Event Goes Here","Event Goes Here","Event Goes Here","Event Goes Here","Event Goes Here. "];
-
+localStorage.setItem("default", JSON.stringify(tasksForTheDay));
 // display the current day at the top of the page
 function setCurrentDate(){
     //Make moment object
@@ -11,6 +11,7 @@ function setCurrentDate(){
 //Set up click listener for first row and replae p with text when clicked
 $(".row").on("click",".style-event",function(){
     //Figure out which item was clicked
+    console.log($(this));
     var rowId = $(this).attr("id").replace("event-","");
     //get current text
     var target = "#event-"+ rowId+ " p";
@@ -75,18 +76,24 @@ function saveTasks(targetRow){
 
 //Load the tasks
 function loadTasks(){
-    //get the array from storage
-    var arrayTask = localStorage.getItem("tasks");
-    //parse the JSON string
-    arrayTask = JSON.parse(arrayTask);
-    //Run for loop to update the text in each slot
-    for (var i = 1; i < 10; i++){
-        var currentEvent = "#event-" + i + " p";
-        var currentEventEl =$(currentEvent);
-        currentEventEl.text(arrayTask[i-1] );
+    //check if it has previously stored stuff
+    console.log(localStorage.getItem("tasks") !== null);
+    if(localStorage.getItem("tasks") !== null){
+        //get the array from storage
+        var arrayTask = localStorage.getItem("tasks");
+        //parse the JSON string
+        arrayTask = JSON.parse(arrayTask);
+        //Run for loop to update the text in each slot
+        for (var i = 1; i < 10; i++){
+            var currentEvent = "#event-" + i + " p";
+            var currentEventEl =$(currentEvent);
+            currentEventEl.text(arrayTask[i-1] );
+            saveTasks(i);
+        }
+        }
     }
-    saveTasks();
-}
+    //save all tasks 
+
 
 //populate event fields
 function fillInEvents(){
