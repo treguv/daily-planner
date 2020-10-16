@@ -1,4 +1,4 @@
-var tasksForTheDay = ["0","0","0","0","0","0","0","0","0"];
+var tasksForTheDay = ["Event Goes Here ","Event Goes Here","Event Goes Here","Event Goes Here","Event Goes Here","Event Goes Here","Event Goes Here","Event Goes Here","Event Goes Here. "];
 
 // display the current day at the top of the page
 function setCurrentDate(){
@@ -83,13 +83,20 @@ function loadTasks(){
     arrayTask = JSON.parse(arrayTask);
     //Run for loop to update the text in each slot
     for (var i = 1; i < 10; i++){
-        console.log(i);
         var currentEvent = "#event-" + i + " p";
         var currentEventEl =$(currentEvent);
-        currentEventEl.text(arrayTask[i-1]);
+        currentEventEl.text(arrayTask[i-1] );
+    }
+    saveTasks();
+}
+
+//populate event fields
+function fillInEvents(){
+    for (var i = 1; i < 10; i++){
+        var currentEvent = "#event-" + i + " p";
+        var currentEventEl =$(currentEvent);
+        currentEventEl.text(tasksForTheDay[i-1] );
     }
 }
-//implement saving the items 
-saveTasks();
-loadTasks();
+fillInEvents();
 setCurrentDate();
