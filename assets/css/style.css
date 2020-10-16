@@ -69,3 +69,30 @@ textarea{
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
+
+.tempShow{
+  background-color: #77dd77;
+  border: 5px black solid;
+}
+/* .zero-margin {
+  margin:0px;
+} */
+/* style the planning grid */
+.style-time{
+  background-color: gray;
+  border-top: black dotted;
+  border-bottom: black dotted;
+  border-left:black solid;
+}
+.style-event{
+  background-color:lightblue;
+  border: black solid;
+}
+.style-save{
+  border-top:black solid;
+  border-right: black solid;
+  
+}
+.style-bottom {
+  border-bottom:black solid;
+}
