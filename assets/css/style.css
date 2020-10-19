@@ -96,3 +96,14 @@ textarea{
 .style-bottom {
   border-bottom:black solid;
 }
+.past-due{
+  background-color: #ff6961;
+}
+
+.on-time{
+  background-color:#529991;
+}
+
+.future{
+  background-color: green;
+}
